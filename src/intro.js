@@ -18,3 +18,15 @@ export function calculateAverages(numbers) {
   const sum = numbers.reduce((acc, num) => acc + num, 0);
   return sum / numbers.length;
 }
+
+export function factorial(n) {
+  if (n < 0) throw new Error("Negative numbers are not allowed");
+  new Error("Negative numbers are not allowed");
+  if (n === 0 || n === 1) return 1;
+  if (!Number.isInteger(n)) return NaN; // Handle non-integer inputs
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
+}

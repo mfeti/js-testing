@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { max, fizzBuzz, calculateAverages } from "../src/intro.js";
+import { max, fizzBuzz, calculateAverages, factorial } from "../src/intro.js";
 
 describe("max", () => {
   it("should return the maximum of two numbers", () => {
@@ -56,5 +56,25 @@ describe("calculateAverages", () => {
   it("should handle small numbers", () => {
     const numbers = [0.0001, 0.0002, 0.0003];
     expect(calculateAverages(numbers)).toBe(0.0002);
+  });
+});
+
+describe("factorial", () => {
+  it("should return 1 for factorial of 0", () => {
+    expect(factorial(0)).toBe(1);
+  });
+
+  it("should return the correct factorial for positive integers", () => {
+    expect(factorial(5)).toBe(120);
+    expect(factorial(3)).toBe(6);
+  });
+
+  it("should throw an error for negative integers", () => {
+    expect(() => factorial(-1)).toThrow("Negative numbers are not allowed");
+  });
+
+  it("should return NaN for non-integer inputs", () => {
+    expect(factorial(2.5)).toBeNaN();
+    expect(factorial("string")).toBeNaN();
   });
 });
